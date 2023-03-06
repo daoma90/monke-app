@@ -1,0 +1,102 @@
+{
+  "sv-SE": {
+    "translation": {
+      "locales": {
+        "sv-SE": {
+          "name": "Svenska",
+          "code": "sv"
+        },
+        "en-US": { "name": "English", "code": "en" }
+      },
+      "utils": {
+        "logo": "SpiderPigz!"
+      },
+      "forms": {
+        "labels": {
+          "email": "Epost",
+          "password": "Lösenord",
+          "username": "Användarnamn",
+          "repeatPassword": "Repetera lösenord"
+        }
+      },
+      "buttons": {
+        "labels": {
+          "login": "Logga in",
+          "register": "Registrera",
+          "back": "Bakåt",
+          "forgotPassword": "Glömt lösenord",
+          "resetPassword": "Återställ lösenord"
+        }
+      },
+      "headers": {
+        "login": "Logga in",
+        "register": "Registrera",
+        "resetPassword": "Återställl lösenord",
+        "calendar": "Kalender",
+        "members": "Medlemmar",
+        "gallery": "Galleri",
+        "profile": "Profil"
+      },
+      "profileMenu": {
+        "editAvatar": "Ändra avatar",
+        "editUsername": "Ändra användarnamn",
+        "editPassword": "Ändra lösenord",
+        "privacyPolicy": "Integritetspolicy",
+        "logOut": "Logga ut"
+      },
+      "breadText": {
+        "construction": "Såg du inte byggskyltarna?!"
+      }
+    }
+  },
+  "en-US": {
+    "translation": {
+      "locales": {
+        "sv-SE": {
+          "name": "Svenska",
+          "code": "sv"
+        },
+        "en-US": { "name": "English", "code": "en" }
+      },
+      "utils": {
+        "logo": "SpiderPigz!"
+      },
+      "forms": {
+        "labels": {
+          "email": "Email",
+          "password": "Password",
+          "username": "Username",
+          "repeatPassword": "Repeat password"
+        }
+      },
+      "buttons": {
+        "labels": {
+          "login": "Log in",
+          "register": "Register",
+          "back": "Back",
+          "forgotPassword": "Forgot password",
+          "resetPassword": "Reset password"
+        }
+      },
+      "headers": {
+        "login": "Log in",
+        "register": "Register",
+        "resetPassword": "Reset password",
+        "calendar": "Calendar",
+        "members": "Members",
+        "gallery": "Gallery",
+        "profile": "Profile"
+      },
+      "profileMenu": {
+        "editAvatar": "Edit avatar",
+        "editUsername": "Edit username",
+        "editPassword": "Edit password",
+        "privacyPolicy": "Privacy policy",
+        "logOut": "Log out"
+      },
+      "breadText": {
+        "construction": "Did you not see the construction signs?!"
+      }
+    }
+  }
+}
