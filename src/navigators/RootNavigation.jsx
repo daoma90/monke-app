@@ -1,5 +1,5 @@
 import { DarkTheme, NavigationContainer } from "@react-navigation/native";
-import React from "react";
+import React, { useEffect } from "react";
 import { View } from "react-native";
 import { useAuthContext } from "../context/AuthContext";
 import { useThemeContext } from "../context/ThemeContext";
@@ -9,6 +9,7 @@ import HomeStack from "./HomeStack";
 const RootNavigation = () => {
   const { user } = useAuthContext();
   const { theme } = useThemeContext();
+
   return (
     <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
       <NavigationContainer theme={DarkTheme}>

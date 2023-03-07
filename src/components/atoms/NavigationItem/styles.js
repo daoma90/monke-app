@@ -18,4 +18,9 @@ const BackgroundImage = styled.Image`
   opacity: 0.4;
 `;
 
-export { Container, BackgroundImage };
+const ConstructionContainer = styled.View`
+  position: absolute;
+  transform: ${(props) => props.rotate};
+`;
+
+export { Container, BackgroundImage, ConstructionContainer };

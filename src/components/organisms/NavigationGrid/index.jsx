@@ -10,7 +10,7 @@ const NavigationGrid = () => {
 
   return (
     <s.Grid>
-      <s.Row height="28%">
+      <s.Row height="30%">
         <NavigationItem
           title={t("headers.calendar")}
           size={{ width: "100%" }}
@@ -33,9 +33,10 @@ const NavigationGrid = () => {
           id="gallery"
           image={require("../../../../assets/gallery.png")}
           link="GalleryScreen"
+          construction
         />
       </s.Row>
-      <s.Row height="28%" noMarginBottom>
+      <s.Row height="26%" noMarginBottom>
         <NavigationItem
           title={t("headers.profile")}
           size={{ width: "100%" }}

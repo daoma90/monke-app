@@ -6,8 +6,9 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import { collection, doc, getDocs, query, setDoc, updateDoc, where } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth } from "../../firebaseConfig";
+import { auth, db } from "../../firebaseConfig";
 
 export const AuthContext = createContext({});
 
@@ -18,15 +19,9 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    console.log("user", user);
-  }, [user]);
-
-  useEffect(() => {
-    // console.log("auth", auth);
     const unsubscribeFromAuthStateChanged = onAuthStateChanged(auth, (user) => {
-      // console.log("response", user);
       if (user) {
-        setUser(user);
+        getUser(user);
       } else {
         setUser(undefined);
       }
@@ -55,12 +50,10 @@ export const AuthProvider = ({ children }) => {
 
   const handleRegister = async (email, username, password) => {
     try {
-      const response = await createUserWithEmailAndPassword(auth, email, password);
-      console.log("response", response);
-      if (response) {
-        updateProfile(auth.currentUser, {
-          displayName: username,
-        });
+      const user = await createUserWithEmailAndPassword(auth, email, password);
+      console.log("response", user);
+      if (user) {
+        createUserDb(user.user, username);
         return true;
       } else return false;
     } catch (e) {
@@ -80,6 +73,48 @@ export const AuthProvider = ({ children }) => {
     } catch (e) {
       console.log("reset password error", e);
       return false;
+    }
+  };
+
+  const getUser = async (authUser) => {
+    const usersRef = collection(db, "users");
+    const user = query(usersRef, where("id", "==", authUser.uid));
+
+    const querySnapshot = await getDocs(user);
+    querySnapshot.forEach((doc) => {
+      setUser({ auth: authUser, db: doc.data() });
+    });
+  };
+
+  const createUserDb = async (user, username) => {
+    try {
+      const response = await setDoc(doc(db, "users", user.uid), {
+        username: username,
+        email: user.email,
+        id: user.uid,
+      });
+    } catch (e) {
+      console.log("set username error", e);
+    }
+  };
+
+  const editUsername = async (username) => {
+    const userRef = doc(db, "users", user.auth.uid);
+
+    try {
+      const response = await updateDoc(userRef, {
+        username: username,
+      });
+    } catch (e) {
+      console.log("Edit username error", e);
+    }
+  };
+
+  const editPassword = async (password) => {
+    try {
+      const response = await auth.currentUser.updatePassword(password);
+    } catch (e) {
+      console.log("Edit password error", e);
     }
   };
 
